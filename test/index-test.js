@@ -52,12 +52,12 @@ describe('restaurants input', () => {
         <App />
       </Provider>
     );
-    
+
     expect(store.getState().restaurants.length).to.equal(0)
     let WrapperRestaurantInput = wrapper.find(RestaurantInput).first();
     let restaurantNameInput = wrapper.find('input').first();
     restaurantNameInput.simulate('change', { target: { value: 'chilis' } });
-    let locationInput = wrapper.find({type: 'text'}).last();
+    let locationInput = wrapper.find({id: 'location'}).last();
     locationInput.simulate('change', { target: { value: 'philly' } });
     let form = wrapper.find('form').first();
     form.simulate('submit',  { preventDefault() {} });
